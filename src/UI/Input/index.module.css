@@ -1,0 +1,18 @@
+.input {
+   padding: 10px;
+   box-sizing: border-box;
+   border: 1px solid #FFFFFF;
+   outline: none;
+   font-family: 'Roboto', sans-serif;
+   font-size: 18px;
+   color: #dbdbdb;
+   background: none;
+   border-radius: 5px;
+   height: 35px;
+   width: 200px;
+}
+
+.input:focus {
+   background-color: #3f454c;
+   color: #FFFFFF;
+}
