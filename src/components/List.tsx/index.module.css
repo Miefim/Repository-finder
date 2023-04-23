@@ -1,0 +1,54 @@
+.list {
+   width: 1000px;
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+}
+
+.messageBlock {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-size: 50px;
+}
+
+.count {
+   font-size: 25px;
+   width: 100%;
+   text-align: center;
+   padding: 10px 0;
+}
+
+.card {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   box-sizing: border-box;
+   padding: 20px 10px;
+   border-bottom: 1px solid #e4e8ec;
+}
+
+.cardTitle {
+   color: #0969da;
+   font-size: 30px;
+   cursor: pointer;
+   width: 500px;
+}
+.cardTitle:hover {
+   text-decoration: underline;
+}
+
+.cardDescription {
+   color: #b0b0b0;
+}
+
+.cardStars {
+   width: 80px;
+}
+
+.cardLink {
+   color: black;
+}
+.cardLink:hover {
+   color: #0969da;
+}

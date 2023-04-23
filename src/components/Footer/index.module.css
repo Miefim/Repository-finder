@@ -1,0 +1,23 @@
+.footer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+   height: 150px;
+}
+
+.iconGroup {
+   display: flex;
+   justify-content: space-between;
+   width: 300px;
+}
+
+.icon {
+   width: 40px;
+   opacity: .5;
+   cursor: pointer;
+}
+.icon:hover {
+   opacity: 1;
+   transition: .3s;
+}
