@@ -1,5 +1,4 @@
 .header {
-   width: 100vw;
    height: 70px;
    display: flex;
    justify-content: space-between;
@@ -17,7 +16,8 @@
 
 .logoImg {
    width: 50px;
-   margin-right: 20px;
+   margin-right: 20px; 
+   cursor: pointer;
 }
 
 .header_logo {
@@ -26,4 +26,44 @@
 
 .header_input {
    margin-right: 30px;
+}
+
+@media screen and (max-width: 650px) {
+
+   .header {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+   }
+
+   .header_logo {
+      margin: 0 0 20px 0;
+   }
+
+   .header_input {
+      margin: 0;
+      width: 373px;
+      height: 50px;
+   }
+
+}
+
+@media screen and (max-width: 420px) {
+
+   .logo {
+      font-size: 25px;
+   }
+
+   .header_input {
+      width: 100% 
+   }
+
+}
+
+@media screen and (max-width: 420px) {
+
+   .logo {
+      font-size: 20px;
+   }
+
 }
