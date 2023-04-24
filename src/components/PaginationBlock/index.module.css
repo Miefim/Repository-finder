@@ -1,0 +1,48 @@
+.pagination {
+   display: flex;
+   justify-content: space-between;
+   min-width: 100px;
+   align-items: center;
+}
+
+.arrowButtonRightIcon {
+   transform: rotate(180deg);
+}
+
+.arrowButton {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   margin: 0 10px;
+   background: none;
+   border: none;
+   outline: none;
+}
+
+.arrowButton:disabled {
+   opacity: .2;
+}
+
+.pagination_window {
+   max-width: 270px;
+   overflow: hidden;
+}
+
+.window_tape {
+   display: flex;
+   width: fit-content;
+}
+
+.navUnit {
+   text-align: center;
+   margin: 0 5px;
+   cursor: default;
+   width: 20px;
+}
+
+.activeUnit {
+   color: #000000;
+   font-weight: 700;
+   font-size: larger;
+}

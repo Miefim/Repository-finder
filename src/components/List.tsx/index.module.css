@@ -5,11 +5,16 @@
    margin: 0 auto;
 }
 
+.loader {
+   margin: auto;
+}
+
 .messageBlock {
    display: flex;
    flex-direction: column;
    align-items: center;
    font-size: 50px;
+   margin: auto;
 }
 
 .count {
@@ -51,4 +56,56 @@
 }
 .cardLink:hover {
    color: #0969da;
+}
+
+.paginationConteiner {
+   display: flex;
+   justify-content: center;
+   margin-top: 40px;
+}
+
+.pagination {
+   width: fit-content;
+}
+
+@media screen and (max-width: 1000px) {
+   
+   .list {
+      width: 100%;
+   }
+
+   .cardTitle {
+      width: 250px;
+      font-size: 25px;
+   }
+
+   .cardDescription {
+      font-size: 12px;
+   }
+
+}
+
+@media screen and (max-width: 600px) {
+
+   .card {
+      flex-direction: column;
+   }
+
+   .cardTitle {
+      width: auto;
+   }
+
+   .cardDescription {
+      width: auto;
+   }
+
+   .count {
+      font-size: 15px;
+      background-color: #e4e8ec;
+   }
+
+   .messageBlock {
+      font-size: 30px;
+   }
+
 }

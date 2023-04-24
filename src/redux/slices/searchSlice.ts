@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { RootState } from "../store";
 
@@ -16,7 +16,7 @@ export const searchSlice = createSlice({
 
    reducers: {
       
-      setSearchValue: (state, action) => {
+      setSearchValue: (state, action: PayloadAction<string>) => {
          state.searchValue = action.payload
       }
 

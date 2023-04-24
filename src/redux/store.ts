@@ -3,13 +3,15 @@ import { useDispatch } from "react-redux"
 
 import repositoriesSlice from "./slices/repositoriesSlice"
 import searchSlice from "./slices/searchSlice"
+import paginationSlice from "./slices/paginationSlice"
 
 export const store = configureStore({
 
    reducer: {
 
       repositoriesSlice,
-      searchSlice
+      searchSlice,
+      paginationSlice
       
    }
    

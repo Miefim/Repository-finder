@@ -3,16 +3,17 @@ import { RootState } from "../store";
 
 type GetRepositoriesArguments = {
    searchValue?: string
+   pagination?: string
+   button?: string
 }
 
 export const getRepositories = createAsyncThunk<Response, GetRepositoriesArguments, {rejectValue: string}>("repositoriesSlice/getRepositories", 
-   async ({ searchValue },{rejectWithValue}) => {
+   async ({ searchValue, pagination, button },{rejectWithValue}) => {
       try {
-
          const query = {
             "query": `
                query { 
-                  search(query: "${searchValue}" type: REPOSITORY first: 10){
+                  search(query: "${searchValue}" type: REPOSITORY ${button === 'prev' ? 'last': 'first'}: 10 ${pagination ? pagination : ''}){
                      pageInfo{
                         startCursor
                         endCursor
@@ -53,7 +54,7 @@ export const getRepositories = createAsyncThunk<Response, GetRepositoriesArgumen
             "query": `
                query { 
                   repositoryOwner(login: "miefim") {
-                     repositories(first: 5) {
+                     repositories(${button === 'prev' ? 'last': 'first'}: 10 ${pagination ? pagination : ''}) {
                         pageInfo{
                            startCursor
                            endCursor
@@ -133,6 +134,12 @@ type PageInfo = {
    endCursor: string
 }
 
+type Language = {
+   node: {
+      name: string
+   }
+}
+
 export type Repository = {
    node: {
       id: string
@@ -147,11 +154,7 @@ export type Repository = {
          avatarUrl: string
       }
       languages: {
-         edges: {
-            node: {
-               name: string
-            }
-         }[]
+         edges: Language[]
       }
    }
 }
@@ -163,6 +166,7 @@ type RepositoriesSliceState = {
    endCursor: string | null
    isLoading: boolean
    error: string | null
+   isFirstQuery: boolean
 }
 
 const initialState: RepositoriesSliceState = {
@@ -172,6 +176,7 @@ const initialState: RepositoriesSliceState = {
    endCursor: null,
    isLoading: false,
    error: null,
+   isFirstQuery: true
 }
 
 export const repositoriesSlice = createSlice({
@@ -195,6 +200,7 @@ export const repositoriesSlice = createSlice({
             state.endCursor = action.payload.data.search.pageInfo.endCursor
          }
          else if (action.payload.data.repositoryOwner){
+            state.isFirstQuery = false
             state.repositories = action.payload.data.repositoryOwner.repositories.edges
             state.repositoryCount = action.payload.data.repositoryOwner.repositories.totalCount
             state.startCursor = action.payload.data.repositoryOwner.repositories.pageInfo.startCursor

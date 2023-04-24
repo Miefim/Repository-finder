@@ -21,3 +21,19 @@
    opacity: 1;
    transition: .3s;
 }
+
+@media screen and (max-width: 650px) {
+
+   .footer {
+      height: 100px;
+   }
+
+   .iconGroup {
+      width: 200px;
+   }
+
+   .icon {
+      width: 30px;
+   }
+
+}

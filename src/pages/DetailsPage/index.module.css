@@ -1,3 +1,30 @@
 .wrapper {
-   height: 100%;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+.detailsPage_footer {
+   margin: auto auto 0 auto;
+}
+
+.breadСrumbs{
+   display: flex;
+   align-items: center;
+   height: 50px;
+   font-size: 20px;
+   color: #000000;
+   background-color: #dadada;
+   padding: 0 30px;
+}
+
+.crumbs {
+   margin: 0 10px;
+   color: #0a69da;
+   cursor: pointer;
+}
+
+.noActiveCrumb {
+   color: #000000;
+   cursor: default;
 }

@@ -8,7 +8,7 @@ const MainPage: React.FC = () => {
       <div className={style.wrapper}>
          <Header/>
          <List />
-         <Footer />
+         <Footer className={style.mainPage_footer} />
       </div>
    )
 }
