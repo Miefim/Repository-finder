@@ -194,6 +194,7 @@ export const repositoriesSlice = createSlice({
       builder.addCase(getRepositories.fulfilled, (state, action) => {
          state.isLoading = false
          if(action.payload.data.search){
+            state.isFirstQuery = false
             state.repositories = action.payload.data.search.edges
             state.repositoryCount = action.payload.data.search.repositoryCount
             state.startCursor = action.payload.data.search.pageInfo.startCursor
