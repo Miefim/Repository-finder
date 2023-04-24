@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch } from '../../redux/store'
 import { getRepositories, repositoriesSelector } from '../../redux/slices/repositoriesSlice' 
-import { searchSelector } from '../../redux/slices/searchSlice'
+import { searchSelector, setSearchValue } from '../../redux/slices/searchSlice'
 import { paginationSelector, setPage } from '../../redux/slices/paginationSlice'
 import Paginations from '../PaginationBlock'
 import Loader from '../../UI/Loader'
@@ -25,9 +25,25 @@ const List: React.FC<ListProps> = ({ className }) => {
    useEffect(() => {
 
       if(isFirstQuery){
-         dispatch(getRepositories({}))
-      }
+         const startParamsJSON = localStorage.getItem("gitHubGraphqlApi")
+         if(startParamsJSON){
+            const startParamsParse = JSON.parse(startParamsJSON)
       
+            if(startParamsParse.page > 1){
+               const pagination = startParamsParse.button === 'next' ? `after: "${startParamsParse.endCursor}"` :  startParamsParse.button === 'prev' ? `before: "${startParamsParse.startCursor}"` : ''
+               dispatch(setSearchValue(startParamsParse.searchValue))
+               dispatch(setPage(startParamsParse.page))
+               dispatch(getRepositories({searchValue: startParamsParse.searchValue, pagination, button: startParamsParse.button}))
+            }
+            else {
+               dispatch(setSearchValue(startParamsParse.searchValue))
+               dispatch(getRepositories({searchValue: startParamsParse.searchValue}))
+            }
+         }
+         else{
+            dispatch(getRepositories({}))
+         }
+      }
    },[])
    
    const paginationNextButton = () => {
